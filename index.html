@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arihan Iyer</title>
+<meta name="description" content="Arihan Iyer — AI/ML Engineer, MS CSE at University of Michigan">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#1a1a1a',
+          inksoft: '#4a4a4a',
+          paper: '#faf9f6',
+          paperline: '#e4e1d8',
+          umblue: '#00274c',
+          umbluesoft: '#2c4a6e',
+          maize: '#ffcb05',
+        },
+        fontFamily: {
+          serif: ['"Source Serif 4"', 'serif'],
+          sans: ['"IBM Plex Sans"', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  a { border-bottom: 1px solid transparent; }
+  .link-underline { border-bottom: 1px solid #e4e1d8; }
+  .link-underline:hover { border-bottom-color: #00274c; }
+  :focus-visible { outline: 2px solid #00274c; outline-offset: 2px; }
+</style>
+</head>
+
+<body class="bg-paper text-ink font-sans antialiased leading-relaxed">
+
+<div class="max-w-[1180px] mx-auto lg:grid lg:grid-cols-[300px_1fr] xl:grid-cols-[320px_1fr]">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-b lg:border-b-0 lg:border-r border-paperline
+                px-6 sm:px-10 lg:px-0 lg:pl-0 lg:pr-10
+                pt-12 sm:pt-14 lg:pt-16 pb-8 lg:pb-8
+                flex flex-col">
+
+    <div class="flex items-start justify-between gap-4 mb-6 sm:mb-7">
+      <div class="min-w-0">
+        <h1 class="font-serif font-semibold text-umblue text-3xl sm:text-4xl leading-tight tracking-tight mb-2">
+          Arihan Iyer
+        </h1>
+        <p class="text-inksoft text-sm sm:text-base max-w-[24ch]">
+          AI/ML Engineer building agentic systems and LLM-powered applications
+        </p>
+      </div>
+      <img src="photo.jpeg" alt="Arihan Iyer"
+           class="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-full object-cover border border-paperline shrink-0 mt-1">
+    </div>
+
+    <div class="flex items-baseline gap-2 text-xs sm:text-sm text-inksoft pb-3.5 mb-6 sm:mb-8 border-b-2 border-maize">
+      <strong class="text-ink font-medium">MS CSE</strong> — University of Michigan, '28
+    </div>
+
+    <nav aria-label="Section navigation"
+         class="flex flex-row flex-wrap lg:flex-col gap-x-4 gap-y-2 lg:gap-1.5 text-sm mb-8 lg:mb-auto">
+      <a href="#about" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">About</a>
+      <a href="#experience" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Experience</a>
+      <a href="#projects" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Projects</a>
+      <a href="#achievements" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Achievements</a>
+      <a href="#education" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Education</a>
+    </nav>
+
+    <div class="flex flex-col gap-2 text-xs sm:text-sm font-mono pt-5 lg:pt-6 border-t border-paperline">
+      <a href="mailto:imarihan@umich.edu" class="link-underline text-umblue w-fit break-all">imarihan@umich.edu</a>
+      <a href="https://github.com/arihaniyer9" target="_blank" rel="noopener" class="link-underline text-umblue w-fit">github.com/arihaniyer9</a>
+      <a href="https://linkedin.com/in/arihaniyer9" target="_blank" rel="noopener" class="link-underline text-umblue w-fit">linkedin.com/in/arihaniyer9</a>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="px-6 sm:px-10 lg:pl-12 lg:pr-10 pt-12 sm:pt-14 lg:pt-16 pb-20 max-w-[760px]">
+
+    <section id="about" class="mb-14 sm:mb-16">
+      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">ABOUT</p>
+      <p class="text-base sm:text-[1.02rem] max-w-[62ch] mb-4">
+      AI/ML engineer building agentic systems and LLM-powered applications, currently finishing my MS in Computer Science & Engineering at Michigan. Over the past two years, I've architected and shipped multiple AI products now in active production use, from research automation tools serving dozens of users to agentic assistants handling real scheduling workflows across 100+ groups. Let's connect if you're working on something in the agentic AI space.
+      </p>
+      <p class="text-base sm:text-[1.02rem] max-w-[62ch]">
+        I'm currently pursuing my Master's in Computer Science &amp; Engineering at the University of Michigan, focused on scalable systems, HCI, and NLP. My interests sit in agentic AI, retrieval-augmented systems, and the parts of AI engineering that don't show up in a notebook — integration, state, and reliability.
+      </p>
+    </section>
+
+    <section id="experience" class="mb-14 sm:mb-16">
+      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">EXPERIENCE</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-[84px_1fr] gap-1 sm:gap-5 py-5 first:pt-0 border-t border-paperline first:border-t-0">
+        <div class="font-mono text-xs text-inksoft pt-0.5">2025 – 2026</div>
+        <div>
+          <p class="font-semibold text-base mb-0.5">Innovation Architect</p>
+          <p class="text-sm text-inksoft mb-3">CreatED, Hybrid, Mumbai</p>
+          <ul class="list-disc pl-5 space-y-1.5 text-sm">
+            <li>Architected CEDAR AI, a research platform used by 25+ researchers to automate manuscript drafting and formatting compliance</li>
+            <li>Built Sync, an agentic WhatsApp assistant handling scheduling for 100+ groups via natural language and the Google Calendar API</li>
+            <li>Program Coordinator of CaseQuest with BITSOM Mumbai &amp; IIM Mumbai — curriculum delivery and logistics for 100+ participants</li>
+          </ul>
+          <p class="font-mono text-xs text-umbluesoft mt-2.5">Next.js · Python · LLMs · Agentic Workflows · MERN</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-[84px_1fr] gap-1 sm:gap-5 py-5 border-t border-paperline">
+        <div class="font-mono text-xs text-inksoft pt-0.5">2024 – 2025</div>
+        <div>
+          <p class="font-semibold text-base mb-0.5">Software Development Engineer Intern</p>
+          <p class="text-sm text-inksoft mb-3">LearnMigo, Hybrid, Mumbai/Bangalore</p>
+          <ul class="list-disc pl-5 space-y-1.5 text-sm">
+            <li>Developed customizable avatar chatbots enabling teachers to personalize student interactions, designing persona representations that stayed consistent across varied content and teaching styles</li>
+            <li>Built LessonAI, streamlining creation of learning outcomes, instructional content, and presentations using generative AI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="mb-14 sm:mb-16">
+      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">PROJECTS</p>
+
+      <div class="py-5 first:pt-0 border-t border-paperline first:border-t-0">
+        <div class="flex justify-between items-baseline gap-4 mb-1.5">
+          <span class="font-semibold text-base">Reasoning Canvas</span>
+          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2026</span>
+        </div>
+        <p class="text-sm max-w-[60ch] mb-2">A structured argument canvas for high school researchers — students build and defend visual models of scientific claims using RAG-backed supporting and opposing evidence before writing a word.</p>
+        <p class="font-mono text-xs text-umbluesoft">Next.js · TypeScript · FastAPI · Supabase (pgvector) · Gemini</p>
+      </div>
+
+      <div class="py-5 border-t border-paperline">
+        <div class="flex justify-between items-baseline gap-4 mb-1.5">
+          <span class="font-semibold text-base">CEDAR AI — Research Assistant Platform</span>
+          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2025–2026</span>
+        </div>
+        <p class="text-sm max-w-[60ch] mb-2">A full-stack application streamlining research writing for CreatED mentors: automated citation generation, section drafting, and formatting compliance checks. Supporting 25+ active researchers.</p>
+        <p class="font-mono text-xs text-umbluesoft">Next.js · Python · LLMs · Prompt Engineering</p>
+      </div>
+
+      <div class="py-5 border-t border-paperline">
+        <div class="flex justify-between items-baseline gap-4 mb-1.5">
+          <span class="font-semibold text-base">E-bike Recommendation Chatbot</span>
+          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2025</span>
+        </div>
+        <p class="text-sm max-w-[60ch] mb-2">A recommendation chatbot for Joy E-Bike using a weighted scoring algorithm and collaborative filtering to personalize suggestions, paired with an admin analytics panel for business-facing KPIs.</p>
+        <p class="font-mono text-xs text-umbluesoft">ReactJS · Node.js · Python · NLTK · spaCy</p>
+      </div>
+
+      <div class="py-5 border-t border-paperline">
+        <div class="flex justify-between items-baseline gap-4 mb-1.5">
+          <span class="font-semibold text-base">Crop Suitability Prediction using XAI</span>
+          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2025</span>
+        </div>
+        <p class="text-sm max-w-[60ch] mb-2">A dual-stage agricultural model recommending optimal crops from soil nutrients and yield thresholds, with Explainable AI techniques so farmers can trust and verify the reasoning.</p>
+        <p class="font-mono text-xs text-umbluesoft">Python · Scikit-learn · LightGBM</p>
+      </div>
+    </section>
+
+    <section id="achievements" class="mb-14 sm:mb-16">
+      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">ACHIEVEMENTS</p>
+
+      <div class="py-4 first:pt-0 border-t border-paperline first:border-t-0">
+        <p class="font-semibold text-sm mb-1">Finalist, Milken–Penn GSE Education Business Plan Competition 2026</p>
+        <p class="text-sm text-inksoft max-w-[60ch]">CreatED earned a spot as one of seven finalists in Penn GSE and the Milken Family Foundation's 17th annual competition.</p>
+      </div>
+
+      <div class="py-4 border-t border-paperline">
+        <p class="font-semibold text-sm mb-1">'Star Student' Award, Information Technology Department</p>
+        <p class="text-sm text-inksoft max-w-[60ch]">Selected as the department's top-performing student based on academic merit, technical innovation, and leadership.</p>
+      </div>
+
+      <div class="py-4 border-t border-paperline">
+        <p class="font-semibold text-sm mb-1">Finalist, Smart India Hackathon 2022</p>
+        <p class="text-sm text-inksoft max-w-[60ch]">Led a team to the grand finale, building a transparent verification system for UGC/AICTE regulatory approvals.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">EDUCATION</p>
+
+      <div class="py-4 first:pt-0 border-t border-paperline first:border-t-0">
+        <p class="font-semibold text-sm sm:text-base">University of Michigan</p>
+        <p class="text-sm text-inksoft my-1">Master of Science, Computer Science &amp; Engineering</p>
+        <p class="font-mono text-xs text-inksoft">2026 – 2028</p>
+      </div>
+
+      <div class="py-4 border-t border-paperline">
+        <p class="font-semibold text-sm sm:text-base">Mumbai University</p>
+        <p class="text-sm text-inksoft my-1">B.E., Information Technology (Honours in AI &amp; ML) — GPA 3.90/4</p>
+        <p class="font-mono text-xs text-inksoft">2021 – 2025</p>
+      </div>
+    </section>
+
+    <footer class="mt-16 sm:mt-20 pt-6 text-xs sm:text-sm text-inksoft border-t border-paperline">
+      Arihan Iyer — Ann Arbor, MI
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>
