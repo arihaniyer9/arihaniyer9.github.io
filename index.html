@@ -4,215 +4,577 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arihan Iyer</title>
-<meta name="description" content="Arihan Iyer — AI/ML Engineer, MS CSE at University of Michigan">
+<meta name="description" content="Arihan Iyer: MS CSE at the University of Michigan. I build agentic systems and LLM-powered products. Open to Summer 2027 internships.">
+<link rel="canonical" href="https://arihaniyer9.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arihan Iyer">
+<meta property="og:description" content="MS CSE at the University of Michigan. I build agentic systems and LLM-powered products.">
+<meta property="og:url" content="https://arihaniyer9.github.io/">
+<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06101d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<script src="https://cdn.tailwindcss.com"></script>
 <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          ink: '#1a1a1a',
-          inksoft: '#4a4a4a',
-          paper: '#faf9f6',
-          paperline: '#e4e1d8',
-          umblue: '#00274c',
-          umbluesoft: '#2c4a6e',
-          maize: '#ffcb05',
-        },
-        fontFamily: {
-          serif: ['"Source Serif 4"', 'serif'],
-          sans: ['"IBM Plex Sans"', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'monospace'],
-        },
-      },
-    },
-  };
+  // Apply saved theme before paint to avoid a flash.
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+  } catch (e) {}
 </script>
 
 <style>
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --text: #0d1724;
+    --muted: #5a6474;
+    --faint: #8a93a1;
+    --rule: #e2e4e8;
+    --accent: #00274c;          /* Michigan blue */
+    --accent-soft: #e8eef6;
+    --maize: #ffcb05;
+    --mark: #ffcb05;            /* maize marker, always behind dark text */
+    --on-mark: #0d1724;
+    --link: #00274c;
+    --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    color-scheme: light;
   }
-  a { border-bottom: 1px solid transparent; }
-  .link-underline { border-bottom: 1px solid #e4e1d8; }
-  .link-underline:hover { border-bottom-color: #00274c; }
-  :focus-visible { outline: 2px solid #00274c; outline-offset: 2px; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #06101d;
+      --surface: #0b1828;
+      --text: #e7ecf3;
+      --muted: #9aa7ba;
+      --faint: #6b7a90;
+      --rule: #1a2a40;
+      --accent: #ffcb05;
+      --accent-soft: #10223a;
+      --link: #ffcb05;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #06101d;
+    --surface: #0b1828;
+    --text: #e7ecf3;
+    --muted: #9aa7ba;
+    --faint: #6b7a90;
+    --rule: #1a2a40;
+    --accent: #ffcb05;
+    --accent-soft: #10223a;
+    --link: #ffcb05;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--mark); color: var(--on-mark); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  a { color: inherit; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  h1, h2, h3 { margin: 0; font-weight: 600; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 640px) { .wrap { padding: 0 32px; } }
+
+  .mono { font-family: var(--mono); }
+  .muted { color: var(--muted); }
+
+  /* ---------- top bar ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(8px);
+    -webkit-backdrop-filter: saturate(1.4) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
+  .wordmark { font-family: var(--mono); font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
+  .wordmark span { color: var(--muted); }
+  .nav { display: flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 12.5px; }
+  .nav a { text-decoration: none; color: var(--muted); padding: 6px 8px; }
+  .nav a:hover { color: var(--text); }
+  .nav .cv { color: var(--text); border: 1px solid var(--rule); margin-left: 4px; }
+  .nav .cv:hover { border-color: var(--accent); }
+  .theme-btn {
+    display: inline-grid; place-items: center; width: 32px; height: 32px; margin-left: 4px;
+    background: none; border: 1px solid var(--rule); color: var(--muted); cursor: pointer; padding: 0;
+  }
+  .theme-btn:hover { color: var(--text); border-color: var(--accent); }
+  .theme-btn svg { width: 15px; height: 15px; }
+  .icon-sun { display: none; }
+  :root[data-theme="dark"] .icon-sun { display: block; }
+  :root[data-theme="dark"] .icon-moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .icon-sun { display: block; }
+    :root:not([data-theme="light"]) .icon-moon { display: none; }
+  }
+  @media (max-width: 639px) {
+    .nav .hide-sm { display: none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 640px) { .hero { padding: 104px 0 72px; } }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 12px; color: var(--text);
+    border: 1px solid var(--rule); padding: 5px 10px; margin-bottom: 28px; background: var(--surface);
+  }
+  .dot { width: 7px; height: 7px; background: var(--maize); box-shadow: 0 0 0 3px color-mix(in srgb, var(--maize) 30%, transparent); }
+  .hero h1 { font-size: clamp(40px, 8vw, 68px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin-bottom: 24px; }
+  .lead { font-size: clamp(18px, 2.4vw, 21px); line-height: 1.5; max-width: 34em; letter-spacing: -0.01em; }
+  .lead em { font-style: normal; background: linear-gradient(transparent 62%, color-mix(in srgb, var(--maize) 55%, transparent) 62%); }
+  .sub { margin-top: 16px; max-width: 40em; color: var(--muted); }
+  .sub a { color: var(--text); text-underline-offset: 3px; text-decoration-color: var(--rule); }
+  .sub a:hover { text-decoration-color: var(--accent); }
+
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; font-family: var(--mono); font-size: 13px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    border: 1px solid var(--rule); padding: 8px 12px; background: var(--surface); color: var(--text);
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .btn.primary:hover { opacity: .9; }
+
+  .meta-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    border: 1px solid var(--rule); margin-top: 48px; background: var(--surface);
+  }
+  .meta-row > div { padding: 14px 16px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin: 0 -1px -1px 0; }
+  .meta-row .k { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); margin-bottom: 4px; }
+  .meta-row .v { font-size: 15px; font-weight: 500; }
+  .meta-row .v b { font-family: var(--mono); font-weight: 500; }
+
+  /* ---------- sections ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--rule); scroll-margin-top: 52px; }
+  .sec { display: grid; gap: 20px; }
+  @media (min-width: 820px) { .sec { grid-template-columns: 180px 1fr; gap: 40px; } }
+  .label { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: lowercase; }
+  @media (min-width: 820px) { .label { position: sticky; top: 76px; align-self: start; } }
+  .label .n { color: var(--faint); margin-right: 8px; }
+  .label .n::after { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--maize); margin-left: 8px; vertical-align: 1px; }
+  .label small { display: block; font-size: 11px; color: var(--faint); margin-top: 6px; }
+
+  /* now */
+  .now-head { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.35; margin-bottom: 10px; }
+  .now-tag { display: inline-block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 10px; }
+  .now-body { color: var(--muted); max-width: 42em; }
+  .now-list { margin-top: 28px; border-top: 1px solid var(--rule); }
+  .now-list li { display: grid; grid-template-columns: 24px 1fr; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  .now-list li::before { content: "→"; font-family: var(--mono); color: var(--faint); }
+
+  /* experience */
+  .job { padding: 0 0 32px; }
+  .job + .job { padding-top: 32px; border-top: 1px solid var(--rule); }
+  .job:last-child { padding-bottom: 0; }
+  .job-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+  .job h3 { font-size: 18px; letter-spacing: -0.01em; }
+  .when { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .org { color: var(--muted); font-size: 15px; margin: 2px 0 14px; }
+  .bullets li { position: relative; padding-left: 18px; margin-bottom: 8px; max-width: 44em; }
+  .bullets li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 1px; background: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tags span { font-family: var(--mono); font-size: 11.5px; color: var(--muted); border: 1px solid var(--rule); padding: 2px 7px; background: var(--surface); }
+
+  /* projects */
+  .grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+  @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .card {
+    position: relative; display: flex; flex-direction: column; gap: 10px;
+    padding: 22px 20px 20px; background: var(--surface);
+    border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    transition: background-color .15s ease;
+  }
+  .card::before { content: ""; position: absolute; left: -1px; top: -1px; width: 0; height: 2px; background: var(--maize); transition: width .2s ease; }
+  .card:hover::before { width: calc(100% + 1px); }
+  .card:hover { background: var(--accent-soft); }
+  @media (prefers-reduced-motion: reduce) { .card, .card::before { transition: none; } }
+  .card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .card h3 { font-size: 17px; letter-spacing: -0.01em; line-height: 1.3; }
+  .card .yr { font-family: var(--mono); font-size: 12px; color: var(--faint); white-space: nowrap; }
+  .card p { font-size: 15px; color: var(--muted); }
+  .award {
+    align-self: flex-start; font-family: var(--mono); font-size: 11.5px; line-height: 1.4;
+    background: var(--mark); color: var(--on-mark); padding: 3px 8px;
+  }
+  .card .tags { margin-top: 2px; }
+  .card-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: auto; padding-top: 6px; font-family: var(--mono); font-size: 12.5px; }
+  .card-links a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+  .card-links a:hover { border-bottom-color: currentColor; }
+  .card-links .nolink { color: var(--faint); }
+
+  .archive-h { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 40px 0 8px; }
+  .archive li { border-bottom: 1px solid var(--rule); }
+  .archive a {
+    display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline;
+    padding: 14px 0; text-decoration: none;
+  }
+  .archive a:hover .a-title { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+  .a-title { font-weight: 500; }
+  .a-desc { grid-column: 1 / -1; font-size: 14.5px; color: var(--muted); }
+  .a-stack { font-family: var(--mono); font-size: 11.5px; color: var(--faint); text-align: right; }
+  @media (min-width: 640px) { .a-desc { grid-column: 1; } }
+
+  /* recognition / education */
+  .rows li { display: grid; gap: 2px 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .rows li:first-child { padding-top: 0; }
+  @media (min-width: 640px) { .rows li { grid-template-columns: 1fr auto; } }
+  .rows .t { font-weight: 500; }
+  .rows .t a { text-underline-offset: 3px; text-decoration-color: var(--rule); }
+  .rows .t a:hover { text-decoration-color: var(--accent); }
+  .rows .d { color: var(--muted); font-size: 15px; grid-column: 1; }
+  .rows .y { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; grid-row: 1; grid-column: 2; }
+  @media (max-width: 639px) { .rows .y { grid-row: auto; grid-column: 1; } }
+
+  /* off the clock */
+  .off-intro { max-width: 40em; margin-bottom: 24px; }
+  .kv { font-family: var(--mono); font-size: 13.5px; border: 1px solid var(--rule); background: var(--surface); }
+  .kv div { display: grid; grid-template-columns: 1fr; padding: 11px 16px; border-bottom: 1px solid var(--rule); }
+  .kv div:last-child { border-bottom: 0; }
+  @media (min-width: 520px) { .kv div { grid-template-columns: 170px 1fr; gap: 16px; } }
+  .kv dt { color: var(--text); }
+  .kv dd { margin: 0; color: var(--muted); }
+  .kv .fav dt::after { content: " ★"; color: var(--maize); }
+
+  /* contact + footer */
+  .contact-big { font-size: clamp(24px, 4vw, 34px); letter-spacing: -0.025em; line-height: 1.2; font-weight: 600; max-width: 18em; }
+  .contact-big a { text-decoration-thickness: 2px; text-underline-offset: 5px; text-decoration-color: var(--maize); }
+  .contact-big a:hover { color: var(--accent); }
+  footer { padding: 32px 0 48px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 </style>
 </head>
 
-<body class="bg-paper text-ink font-sans antialiased leading-relaxed">
+<body>
 
-<div class="max-w-[1180px] mx-auto lg:grid lg:grid-cols-[300px_1fr] xl:grid-cols-[320px_1fr]">
-
-  <!-- ============ SIDEBAR ============ -->
-  <aside class="lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-b lg:border-b-0 lg:border-r border-paperline
-                px-6 sm:px-10 lg:px-0 lg:pl-0 lg:pr-10
-                pt-12 sm:pt-14 lg:pt-16 pb-8 lg:pb-8
-                flex flex-col">
-
-    <div class="flex items-start justify-between gap-4 mb-6 sm:mb-7">
-      <div class="min-w-0">
-        <h1 class="font-serif font-semibold text-umblue text-3xl sm:text-4xl leading-tight tracking-tight mb-2">
-          Arihan Iyer
-        </h1>
-        <p class="text-inksoft text-sm sm:text-base max-w-[24ch]">
-          AI/ML Engineer building agentic systems and LLM-powered applications
-        </p>
-      </div>
-      <img src="photo.jpeg" alt="Arihan Iyer"
-           class="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-full object-cover border border-paperline shrink-0 mt-1">
-    </div>
-
-    <div class="flex items-baseline gap-2 text-xs sm:text-sm text-inksoft pb-3.5 mb-6 sm:mb-8 border-b-2 border-maize">
-      <strong class="text-ink font-medium">MS CSE</strong> — University of Michigan, '28
-    </div>
-
-    <nav aria-label="Section navigation"
-         class="flex flex-row flex-wrap lg:flex-col gap-x-4 gap-y-2 lg:gap-1.5 text-sm mb-8 lg:mb-auto">
-      <a href="#about" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">About</a>
-      <a href="#experience" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Experience</a>
-      <a href="#projects" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Projects</a>
-      <a href="#achievements" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Achievements</a>
-      <a href="#education" class="link-underline lg:border-none text-inksoft hover:text-umblue w-fit">Education</a>
+<header class="bar">
+  <div class="wrap">
+    <a href="#top" class="wordmark">arihan_iyer<span>/</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#now" class="hide-sm">now</a>
+      <a href="#experience" class="hide-sm">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#contact" class="hide-sm">contact</a>
+      <a href="resume.pdf" class="cv" target="_blank" rel="noopener">résumé ↗</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" id="theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
     </nav>
+  </div>
+</header>
 
-    <div class="flex flex-col gap-2 text-xs sm:text-sm font-mono pt-5 lg:pt-6 border-t border-paperline">
-      <a href="mailto:imarihan@umich.edu" class="link-underline text-umblue w-fit break-all">imarihan@umich.edu</a>
-      <a href="https://github.com/arihaniyer9" target="_blank" rel="noopener" class="link-underline text-umblue w-fit">github.com/arihaniyer9</a>
-      <a href="https://linkedin.com/in/arihaniyer9" target="_blank" rel="noopener" class="link-underline text-umblue w-fit">linkedin.com/in/arihaniyer9</a>
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="status"><span class="dot" aria-hidden="true"></span>open to summer 2027 internships</p>
+      <h1>Arihan Iyer</h1>
+      <p class="lead">I build agentic systems and LLM-powered products, and I care most about the parts that don't show up in a notebook: <em>integration, state, and reliability.</em></p>
+      <p class="sub">MS in Computer Science &amp; Engineering at the <a href="https://cse.engin.umich.edu/" target="_blank" rel="noopener">University of Michigan</a>. Before that, I was the founding engineer at CreatED, shipping AI tools for students, mentors and researchers.</p>
+
+      <div class="links">
+        <a class="btn primary" href="mailto:imarihan@umich.edu">imarihan@umich.edu</a>
+        <a class="btn" href="https://github.com/arihaniyer9" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://linkedin.com/in/arihaniyer9" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+      </div>
+
+      <div class="meta-row">
+        <div><p class="k">Based in</p><p class="v">Ann Arbor, MI · <span class="mono muted" id="clock" aria-label="Local time"></span></p></div>
+        <div><p class="k">Studying</p><p class="v">MS CSE, Michigan '28</p></div>
+        <div><p class="k">Focus</p><p class="v">Agents · LLM systems</p></div>
+        <div><p class="k">Currently</p><p class="v">KV-cache quantization</p></div>
+      </div>
     </div>
-  </aside>
+  </div>
 
-  <!-- ============ MAIN CONTENT ============ -->
-  <main class="px-6 sm:px-10 lg:pl-12 lg:pr-10 pt-12 sm:pt-14 lg:pt-16 pb-20 max-w-[760px]">
+  <!-- ============ NOW ============ -->
+  <section id="now">
+    <div class="wrap sec">
+      <p class="label"><span class="n">01</span>now<small>updated oct 2026</small></p>
+      <div>
+        <span class="now-tag">Working on · CSE 585 course project</span>
+        <h2 class="now-head">Speculative KV-cache quantization for agentic serving</h2>
+        <p class="now-body">An LLM's KV cache grows linearly with context, which gets painful in long, multi-turn agent sessions. Today's options either evict tokens for good or quantize everything uniformly and lose nuance. Our approach: when GPU memory pressure crosses a threshold, a cheap draft model runs several lookahead rollouts in parallel. Tokens those rollouts agree are important stay in high precision, and the rest of the context gets compressed to low-bit.</p>
+        <ul class="now-list">
+          <li><span>Starting my MS in CSE at Michigan.</span></li>
+          <li><span>Judging student projects at MHacks 2026.</span></li>
+          <li><span>Looking for Summer 2027 internships in AI/ML and software engineering. <a href="mailto:imarihan@umich.edu" style="color:var(--link)">Say hi</a>.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="about" class="mb-14 sm:mb-16">
-      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">ABOUT</p>
-      <p class="text-base sm:text-[1.02rem] max-w-[62ch] mb-4">
-      AI/ML engineer building agentic systems and LLM-powered applications, currently finishing my MS in Computer Science & Engineering at Michigan. Over the past two years, I've architected and shipped multiple AI products now in active production use, from research automation tools serving dozens of users to agentic assistants handling real scheduling workflows across 100+ groups. Let's connect if you're working on something in the agentic AI space.
-      </p>
-      <p class="text-base sm:text-[1.02rem] max-w-[62ch]">
-        I'm currently pursuing my Master's in Computer Science &amp; Engineering at the University of Michigan, focused on scalable systems, HCI, and NLP. My interests sit in agentic AI, retrieval-augmented systems, and the parts of AI engineering that don't show up in a notebook — integration, state, and reliability.
-      </p>
-    </section>
-
-    <section id="experience" class="mb-14 sm:mb-16">
-      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">EXPERIENCE</p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-[84px_1fr] gap-1 sm:gap-5 py-5 first:pt-0 border-t border-paperline first:border-t-0">
-        <div class="font-mono text-xs text-inksoft pt-0.5">2025 – 2026</div>
-        <div>
-          <p class="font-semibold text-base mb-0.5">Innovation Architect</p>
-          <p class="text-sm text-inksoft mb-3">CreatED, Hybrid, Mumbai</p>
-          <ul class="list-disc pl-5 space-y-1.5 text-sm">
-            <li>Architected CEDAR AI, a research platform used by 25+ researchers to automate manuscript drafting and formatting compliance</li>
-            <li>Built Sync, an agentic WhatsApp assistant handling scheduling for 100+ groups via natural language and the Google Calendar API</li>
-            <li>Program Coordinator of CaseQuest with BITSOM Mumbai &amp; IIM Mumbai — curriculum delivery and logistics for 100+ participants</li>
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="wrap sec">
+      <p class="label"><span class="n">02</span>experience</p>
+      <div>
+        <article class="job">
+          <div class="job-top">
+            <h3>Innovation Architect (Founding Engineer)</h3>
+            <span class="when">jun 2025 – jul 2026</span>
+          </div>
+          <p class="org">CreatED · Hybrid, Mumbai</p>
+          <ul class="bullets">
+            <li>First technical hire. Led the architecture of the internal LMS and the automation behind student progress tracking and admin reporting, replacing manual bottlenecks.</li>
+            <li>Architected <strong>CEDAR AI</strong>, a research-writing platform used by 25+ researchers, and <strong>Sync</strong>, an agentic WhatsApp bot running scheduling across 100+ groups (Baileys + Google Calendar API).</li>
+            <li>Program Coordinator for CaseQuest with BITSOM Mumbai &amp; IIM Mumbai: curriculum delivery and logistics for 100+ participants.</li>
           </ul>
-          <p class="font-mono text-xs text-umbluesoft mt-2.5">Next.js · Python · LLMs · Agentic Workflows · MERN</p>
-        </div>
-      </div>
+          <div class="tags"><span>Next.js</span><span>Python</span><span>LLMs</span><span>Agentic workflows</span><span>MERN</span></div>
+        </article>
 
-      <div class="grid grid-cols-1 sm:grid-cols-[84px_1fr] gap-1 sm:gap-5 py-5 border-t border-paperline">
-        <div class="font-mono text-xs text-inksoft pt-0.5">2024 – 2025</div>
-        <div>
-          <p class="font-semibold text-base mb-0.5">Software Development Engineer Intern</p>
-          <p class="text-sm text-inksoft mb-3">LearnMigo, Hybrid, Mumbai/Bangalore</p>
-          <ul class="list-disc pl-5 space-y-1.5 text-sm">
-            <li>Developed customizable avatar chatbots enabling teachers to personalize student interactions, designing persona representations that stayed consistent across varied content and teaching styles</li>
-            <li>Built LessonAI, streamlining creation of learning outcomes, instructional content, and presentations using generative AI</li>
+        <article class="job">
+          <div class="job-top">
+            <h3>Software Development Engineer Intern</h3>
+            <span class="when">apr 2024 – feb 2025</span>
+          </div>
+          <p class="org">LearnMigo · Hybrid, Mumbai / Bangalore</p>
+          <ul class="bullets">
+            <li>Developed customizable avatar chatbots that let teachers personalize student interactions, with personas that stayed consistent across varied content and teaching styles.</li>
+            <li>Built <strong>LessonAI</strong>, a generative-AI tool for drafting learning outcomes, instructional content and presentations.</li>
           </ul>
+          <div class="tags"><span>Generative AI</span><span>Chatbots</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap sec">
+      <p class="label"><span class="n">03</span>projects</p>
+      <div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><h3>Countersign</h3><span class="yr">2026</span></div>
+            <span class="award">IBM Track + Best Use of Jaclang · JacHacks 2026</span>
+            <p>An MCP server that lets an AI agent spend money, but only after proving it should. The agent's priced goal graph and every purchase are vetted by deterministic rules plus an LLM judge before Stripe moves a dollar.</p>
+            <div class="tags"><span>Jac</span><span>MCP</span><span>Stripe API</span><span>LLM-as-judge</span></div>
+            <div class="card-links">
+              <a href="https://devpost.com/software/countersign-mcp" target="_blank" rel="noopener">devpost ↗</a>
+              <a href="https://github.com/arihaniyer9/payment-mcp-jac" target="_blank" rel="noopener">code ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><h3>Reasoning Canvas</h3><span class="yr">2026</span></div>
+            <p>A structured argument canvas for high school researchers. Claims branch into sub-claims and attract supporting or opposing evidence (RAG over pgvector), and checkpoints capture how the argument evolves, all before anyone writes a word.</p>
+            <div class="tags"><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Supabase pgvector</span><span>Gemini</span></div>
+            <div class="card-links">
+              <a href="https://reasoning-canvas-created-web.vercel.app/" target="_blank" rel="noopener">live demo ↗</a>
+              <a href="https://github.com/arihaniyer9/Reasoning-Canvas" target="_blank" rel="noopener">overview ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><h3>CEDAR AI</h3><span class="yr">2025–26</span></div>
+            <p>A research assistant platform where students and mentors build papers section by section, with AI-assisted drafting, citation generation and formatting compliance checks. Used by 25+ researchers.</p>
+            <div class="tags"><span>Next.js</span><span>Node.js</span><span>Python</span><span>Supabase</span><span>OpenAI</span></div>
+            <div class="card-links">
+              <a href="https://cedar-ai-created.vercel.app" target="_blank" rel="noopener">live demo ↗</a>
+              <a href="https://github.com/arihaniyer9/CEDAR-AI" target="_blank" rel="noopener">overview ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><h3>Sync</h3><span class="yr">2025–26</span></div>
+            <p>An agentic WhatsApp bot that schedules mentor–student meetings from natural language: recurring meetings, time zones, role-based permissions and reminders, plus an admin dashboard. Runs across 100+ groups.</p>
+            <div class="tags"><span>Baileys</span><span>FastAPI</span><span>Supabase</span><span>Google Calendar API</span></div>
+            <div class="card-links">
+              <a href="https://github.com/arihaniyer9/SYNC" target="_blank" rel="noopener">overview ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><h3>TAQSHA Studios × The Times of India</h3><span class="yr">2026</span></div>
+            <span class="award">Front page of The Economic Times</span>
+            <p>Co-launched a partnership between CreatED and The Times of India: designed 4 project-based learning tracks and built the platform underneath them.</p>
+            <div class="tags"><span>Next.js</span><span>Python</span><span>LLMs</span><span>Vercel</span><span>Render</span></div>
+            <div class="card-links">
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7459489632980869120/" target="_blank" rel="noopener">announcement ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><h3>E-bike Recommendation Chatbot</h3><span class="yr">2025</span></div>
+            <p>A recommendation chatbot for Joy E-Bike (India's first listed EV company) using weighted scoring and collaborative filtering, with an admin panel that turns raw chats into KPIs like preference trends and lead conversion.</p>
+            <div class="tags"><span>React</span><span>Node.js</span><span>Python</span><span>spaCy</span><span>D3.js</span></div>
+            <div class="card-links"><span class="nolink">no public repo</span></div>
+          </article>
+        </div>
+
+        <p class="archive-h">// more from the archive</p>
+        <ul class="archive">
+          <li><a href="https://github.com/arihaniyer9/Crop-Suitability-using-XAI" target="_blank" rel="noopener">
+            <span class="a-title">Crop Suitability Prediction using XAI ↗</span>
+            <span class="a-stack">Random Forest · LightGBM</span>
+            <span class="a-desc">Two-stage model that recommends crops from soil nutrients, then checks them against yield thresholds, with explainability so farmers can see why.</span>
+          </a></li>
+          <li><a href="https://github.com/arihaniyer9/Multi-Modal_Image_Retrieval_System" target="_blank" rel="noopener">
+            <span class="a-title">Multi-Modal Image Retrieval ↗</span>
+            <span class="a-stack">CLIP · ChromaDB · Gradio</span>
+            <span class="a-desc">Search an image collection with text or with another image, using CLIP embeddings in a shared vector space.</span>
+          </a></li>
+          <li><a href="https://github.com/arihaniyer9/CaseQuest-App" target="_blank" rel="noopener">
+            <span class="a-title">CaseQuest App ↗</span>
+            <span class="a-stack">MERN · AWS EC2</span>
+            <span class="a-desc">Challenge platform for 100+ students, built with IIM Mumbai: polls, quizzes, a live post-it wall, team randomizer and leaderboard.</span>
+          </a></li>
+          <li><a href="https://github.com/arihaniyer9/Healthcare-Chatbot-using-Claude" target="_blank" rel="noopener">
+            <span class="a-title">Healthcare Chatbot ↗</span>
+            <span class="a-stack">React · Node.js · Claude API</span>
+            <span class="a-desc">Helps parents of malnourished children get a preliminary assessment and diet plan from a few simple questions, or points them to nearby doctors.</span>
+          </a></li>
+          <li><a href="https://github.com/arihaniyer9/Sign-Language-Learning-Companion-using-CNN" target="_blank" rel="noopener">
+            <span class="a-title">Sign Language Learning Companion ↗</span>
+            <span class="a-stack">Python · CNN</span>
+            <span class="a-desc">Real-time ASL fingerspelling recognition on a self-built dataset, 98% accuracy across the 26 letters.</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECOGNITION ============ -->
+  <section id="recognition">
+    <div class="wrap sec">
+      <p class="label"><span class="n">04</span>recognition</p>
+      <ul class="rows">
+        <li>
+          <span class="t">Winner, IBM Track + Best Use of Jaclang, JacHacks</span>
+          <span class="y">2026</span>
+          <span class="d">For Countersign. The only team out of 50 to win two tracks.</span>
+        </li>
+        <li>
+          <!-- TODO: add MHacks link after the event -->
+          <span class="t">Judge, MHacks</span>
+          <span class="y">2026</span>
+          <span class="d">Selected to evaluate student hackathon projects at the University of Michigan.</span>
+        </li>
+        <li>
+          <span class="t"><a href="https://www.gse.upenn.edu/news/penn-gse-and-milken-family-foundation-announce-finalists-prestigious-global-education-venture" target="_blank" rel="noopener">Finalist, Milken–Penn GSE Education Business Plan Competition ↗</a></span>
+          <span class="y">2026</span>
+          <span class="d">CreatED was one of seven finalists in the 17th annual competition.</span>
+        </li>
+        <li>
+          <span class="t">'Star Student' Award, IT Department, Mumbai University</span>
+          <span class="d">Department's top-performing student across academics, technical work and leadership.</span>
+        </li>
+        <li>
+          <span class="t">Finalist, Smart India Hackathon</span>
+          <span class="y">2022</span>
+          <span class="d">Led a team to the grand finale with a document-submission portal for UGC/AICTE approvals.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <div class="wrap sec">
+      <p class="label"><span class="n">05</span>education</p>
+      <ul class="rows">
+        <li>
+          <span class="t">University of Michigan, Ann Arbor</span>
+          <span class="y">2026 – 2028</span>
+          <span class="d">MS, Computer Science &amp; Engineering · Advanced Scalable Systems, NLP, Human-AI Interaction</span>
+        </li>
+        <li>
+          <span class="t">Mumbai University</span>
+          <span class="y">2021 – 2025</span>
+          <span class="d">B.E., Information Technology (Honours in AI &amp; ML) · GPA 3.90/4</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OFF THE CLOCK ============ -->
+  <section id="off">
+    <div class="wrap sec">
+      <p class="label"><span class="n">06</span>off the clock</p>
+      <div>
+        <p class="off-intro">I'm not always shipping. Here's what I'm doing when I'm not.</p>
+        <dl class="kv">
+          <div class="fav"><dt>cooking</dt><dd>the thing I love most</dd></div>
+          <div><dt>staying active</dt><dd>rock climbing, the gym</dd></div>
+          <div><dt>writing</dt><dd>novels</dd></div>
+          <div><dt>out &amp; about</dt><dd>café hopping</dd></div>
+          <div><dt>gaming</dt><dd>FPS</dd></div>
+          <div><dt>on loop</dt><dd>pop music, anime</dd></div>
+          <div><dt>next up</dt><dd>travel. Haven't started yet, but it's queued.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" style="border-bottom:0">
+    <div class="wrap sec">
+      <p class="label"><span class="n">07</span>contact</p>
+      <div>
+        <p class="contact-big">Building something with agents or LLMs? I'd love to hear about it: <a href="mailto:imarihan@umich.edu">imarihan@umich.edu</a></p>
+        <div class="links">
+          <a class="btn" href="https://github.com/arihaniyer9" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn" href="https://linkedin.com/in/arihaniyer9" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects" class="mb-14 sm:mb-16">
-      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">PROJECTS</p>
+</main>
 
-      <div class="py-5 first:pt-0 border-t border-paperline first:border-t-0">
-        <div class="flex justify-between items-baseline gap-4 mb-1.5">
-          <span class="font-semibold text-base">Reasoning Canvas</span>
-          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2026</span>
-        </div>
-        <p class="text-sm max-w-[60ch] mb-2">A structured argument canvas for high school researchers — students build and defend visual models of scientific claims using RAG-backed supporting and opposing evidence before writing a word.</p>
-        <p class="font-mono text-xs text-umbluesoft">Next.js · TypeScript · FastAPI · Supabase (pgvector) · Gemini</p>
-      </div>
+<footer>
+  <div class="wrap" style="border-top:1px solid var(--rule); padding-top:24px">
+    <span>© 2026 Arihan Iyer</span>
+    <span>hand-written html &amp; css · no frameworks</span>
+  </div>
+</footer>
 
-      <div class="py-5 border-t border-paperline">
-        <div class="flex justify-between items-baseline gap-4 mb-1.5">
-          <span class="font-semibold text-base">CEDAR AI — Research Assistant Platform</span>
-          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2025–2026</span>
-        </div>
-        <p class="text-sm max-w-[60ch] mb-2">A full-stack application streamlining research writing for CreatED mentors: automated citation generation, section drafting, and formatting compliance checks. Supporting 25+ active researchers.</p>
-        <p class="font-mono text-xs text-umbluesoft">Next.js · Python · LLMs · Prompt Engineering</p>
-      </div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    document.getElementById('theme').addEventListener('click', function () {
+      var dark = root.dataset.theme
+        ? root.dataset.theme === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next = dark ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
 
-      <div class="py-5 border-t border-paperline">
-        <div class="flex justify-between items-baseline gap-4 mb-1.5">
-          <span class="font-semibold text-base">E-bike Recommendation Chatbot</span>
-          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2025</span>
-        </div>
-        <p class="text-sm max-w-[60ch] mb-2">A recommendation chatbot for Joy E-Bike using a weighted scoring algorithm and collaborative filtering to personalize suggestions, paired with an admin analytics panel for business-facing KPIs.</p>
-        <p class="font-mono text-xs text-umbluesoft">ReactJS · Node.js · Python · NLTK · spaCy</p>
-      </div>
-
-      <div class="py-5 border-t border-paperline">
-        <div class="flex justify-between items-baseline gap-4 mb-1.5">
-          <span class="font-semibold text-base">Crop Suitability Prediction using XAI</span>
-          <span class="font-mono text-xs text-inksoft whitespace-nowrap">2025</span>
-        </div>
-        <p class="text-sm max-w-[60ch] mb-2">A dual-stage agricultural model recommending optimal crops from soil nutrients and yield thresholds, with Explainable AI techniques so farmers can trust and verify the reasoning.</p>
-        <p class="font-mono text-xs text-umbluesoft">Python · Scikit-learn · LightGBM</p>
-      </div>
-    </section>
-
-    <section id="achievements" class="mb-14 sm:mb-16">
-      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">ACHIEVEMENTS</p>
-
-      <div class="py-4 first:pt-0 border-t border-paperline first:border-t-0">
-        <p class="font-semibold text-sm mb-1">Finalist, Milken–Penn GSE Education Business Plan Competition 2026</p>
-        <p class="text-sm text-inksoft max-w-[60ch]">CreatED earned a spot as one of seven finalists in Penn GSE and the Milken Family Foundation's 17th annual competition.</p>
-      </div>
-
-      <div class="py-4 border-t border-paperline">
-        <p class="font-semibold text-sm mb-1">'Star Student' Award, Information Technology Department</p>
-        <p class="text-sm text-inksoft max-w-[60ch]">Selected as the department's top-performing student based on academic merit, technical innovation, and leadership.</p>
-      </div>
-
-      <div class="py-4 border-t border-paperline">
-        <p class="font-semibold text-sm mb-1">Finalist, Smart India Hackathon 2022</p>
-        <p class="text-sm text-inksoft max-w-[60ch]">Led a team to the grand finale, building a transparent verification system for UGC/AICTE regulatory approvals.</p>
-      </div>
-    </section>
-
-    <section id="education">
-      <p class="font-mono text-xs text-umbluesoft tracking-wide mb-4 sm:mb-5">EDUCATION</p>
-
-      <div class="py-4 first:pt-0 border-t border-paperline first:border-t-0">
-        <p class="font-semibold text-sm sm:text-base">University of Michigan</p>
-        <p class="text-sm text-inksoft my-1">Master of Science, Computer Science &amp; Engineering</p>
-        <p class="font-mono text-xs text-inksoft">2026 – 2028</p>
-      </div>
-
-      <div class="py-4 border-t border-paperline">
-        <p class="font-semibold text-sm sm:text-base">Mumbai University</p>
-        <p class="text-sm text-inksoft my-1">B.E., Information Technology (Honours in AI &amp; ML) — GPA 3.90/4</p>
-        <p class="font-mono text-xs text-inksoft">2021 – 2025</p>
-      </div>
-    </section>
-
-    <footer class="mt-16 sm:mt-20 pt-6 text-xs sm:text-sm text-inksoft border-t border-paperline">
-      Arihan Iyer — Ann Arbor, MI
-    </footer>
-
-  </main>
-</div>
-
+    var clock = document.getElementById('clock');
+    function tick() {
+      try {
+        clock.textContent = new Date().toLocaleTimeString('en-US', {
+          timeZone: 'America/Detroit', hour: 'numeric', minute: '2-digit'
+        });
+      } catch (e) {}
+    }
+    tick();
+    setInterval(tick, 30000);
+  })();
+</script>
 </body>
 </html>
