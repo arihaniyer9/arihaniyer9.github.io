@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arihan Iyer</title>
-<meta name="description" content="Arihan Iyer: MS CSE at the University of Michigan. I build agentic systems and LLM-powered products. Open to Summer 2027 internships.">
+<title>Arihan Iyer · MS CSE at Michigan · AI/ML and software engineering</title>
+<meta name="description" content="Arihan Iyer: MS CSE at the University of Michigan (graduating May 2028), working in AI/ML and software engineering. I build agentic systems and LLM-powered products. Open to Summer 2027 internships.">
 <link rel="canonical" href="https://arihaniyer9.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Arihan Iyer">
-<meta property="og:description" content="MS CSE at the University of Michigan. I build agentic systems and LLM-powered products.">
+<meta property="og:title" content="Arihan Iyer · MS CSE at Michigan">
+<meta property="og:description" content="MS CSE at the University of Michigan, working in AI/ML and software engineering. I build agentic systems and LLM-powered products.">
 <meta property="og:url" content="https://arihaniyer9.github.io/">
 <meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#06101d" media="(prefers-color-scheme: dark)">
@@ -290,7 +290,7 @@
       <p class="status"><span class="dot" aria-hidden="true"></span>open to summer 2027 internships</p>
       <h1>Arihan Iyer</h1>
       <p class="lead">I build agentic systems and LLM-powered products, and I care most about the parts that don't show up in a notebook: <em>integration, state, and reliability.</em></p>
-      <p class="sub">MS in Computer Science &amp; Engineering at the <a href="https://cse.engin.umich.edu/" target="_blank" rel="noopener">University of Michigan</a>. Before that, I was the founding engineer at CreatED, shipping AI tools for students, mentors and researchers.</p>
+      <p class="sub">MS in Computer Science &amp; Engineering at the <a href="https://cse.engin.umich.edu/" target="_blank" rel="noopener">University of Michigan</a>, graduating May 2028. Before that, I was the founding engineer at CreatED, shipping AI tools for students, mentors and researchers.</p>
 
       <div class="links">
         <a class="btn primary" href="mailto:imarihan@umich.edu">imarihan@umich.edu</a>
@@ -302,7 +302,7 @@
 
       <div class="meta-row">
         <div><p class="k">Based in</p><p class="v">Ann Arbor, MI · <span class="mono muted" id="clock" aria-label="Local time"></span></p></div>
-        <div><p class="k">Studying</p><p class="v">MS CSE, Michigan '28</p></div>
+        <div><p class="k">Studying</p><p class="v">MS CSE, Michigan · May 2028</p></div>
         <div><p class="k">Focus</p><p class="v">Agents · LLM systems</p></div>
         <div><p class="k">Currently</p><p class="v">KV-cache quantization</p></div>
       </div>
@@ -312,15 +312,17 @@
   <!-- ============ NOW ============ -->
   <section id="now">
     <div class="wrap sec">
-      <p class="label"><span class="n">01</span>now<small>updated oct 2026</small></p>
+      <p class="label"><span class="n">01</span>now<small>updated nov 2026</small></p>
       <div>
         <span class="now-tag">Working on · CSE 585 course project</span>
         <h2 class="now-head">Speculative KV-cache quantization for agentic serving</h2>
         <p class="now-body">An LLM's KV cache grows linearly with context, which gets painful in long, multi-turn agent sessions. Today's options either evict tokens for good or quantize everything uniformly and lose nuance. Our approach: when GPU memory pressure crosses a threshold, a cheap draft model runs several lookahead rollouts in parallel. Tokens those rollouts agree are important stay in high precision, and the rest of the context gets compressed to low-bit.</p>
+        <span class="now-tag" style="margin-top:28px">Also working on · CSE 595 course project</span>
+        <h2 class="now-head">What changes when language models learn to follow confidence thresholds</h2>
+        <p class="now-body">Language models often guess when they should admit they don't know. One fix is to put the stakes in the prompt: answer only if you're more than t confident, otherwise abstain. Following that takes two things: knowing how likely your answer is to be right, and acting on that estimate. With three teammates, I'm training a small model to follow t in a few different ways, then looking inside each version with linear probes, activation steering and a regret score. Our bet is that training mostly improves how a model acts on what it already knows, not what it knows.</p>
         <ul class="now-list">
-          <li><span>Starting my MS in CSE at Michigan.</span></li>
-          <li><span>Judging student projects at MHacks 2026.</span></li>
-          <li><span>Looking for Summer 2027 internships in AI/ML and software engineering. <a href="https://calendar.app.google/idqXiC4ZFX7CdbYSA" target="_blank" rel="noopener" style="color:var(--link)">Grab 15 minutes with me</a>.</span></li>
+          <li><span><strong>Looking for Summer 2027 internships in AI/ML and software engineering.</strong> <a href="https://calendar.app.google/idqXiC4ZFX7CdbYSA" target="_blank" rel="noopener" style="color:var(--link)">Grab 15 minutes with me</a>.</span></li>
+          <li><span>Guiding 12 student teams as an AI Solutions Specialist in Ross's Business+Tech AI Sprint.</span></li>
         </ul>
       </div>
     </div>
@@ -333,29 +335,57 @@
       <div>
         <article class="job">
           <div class="job-top">
-            <h3>Innovation Architect (Founding Engineer)</h3>
-            <span class="when">jun 2025 – jul 2026</span>
+            <h3>AI Solutions Specialist</h3>
+            <span class="when">oct 2026 – present</span>
           </div>
-          <p class="org">CreatED · Hybrid, Mumbai</p>
+          <p class="org">Business+Tech, Ross School of Business, University of Michigan · Ann Arbor, MI</p>
           <ul class="bullets">
-            <li>First technical hire. Led the architecture of the internal LMS and the automation behind student progress tracking and admin reporting, replacing manual bottlenecks.</li>
-            <li>Architected <strong>CEDAR AI</strong>, a research-writing platform used by 25+ researchers, and <strong>Sync</strong>, an agentic WhatsApp bot running scheduling across 100+ groups (Baileys + Google Calendar API).</li>
-            <li>Program Coordinator for CaseQuest with BITSOM Mumbai &amp; IIM Mumbai: curriculum delivery and logistics for 100+ participants.</li>
+            <li>Guiding 12 student teams as they build AI tools for a real-estate client in the Fall 2026 AI Sprint.</li>
+            <li>I advise on LLM use cases, evaluation-set design and technical architecture.</li>
           </ul>
-          <div class="tags"><span>Next.js</span><span>Python</span><span>LLMs</span><span>Agentic workflows</span><span>MERN</span></div>
+          <div class="tags"><span>LLMs</span><span>Evaluation</span><span>System design</span></div>
         </article>
 
         <article class="job">
           <div class="job-top">
-            <h3>Software Development Engineer Intern</h3>
+            <h3>Founding Software Engineer (Innovation Architect)</h3>
+            <span class="when">jun 2025 – jul 2026</span>
+          </div>
+          <p class="org">CreatED · Hybrid, Mumbai</p>
+          <ul class="bullets">
+            <li>First technical hire. Led engineering on 30+ internal and client software and AI projects, from requirements through deployment.</li>
+            <li>Automated weekly progress reports in <strong>COSMIC</strong>, our internal learning platform, for 100+ students and 50+ mentors. PostgreSQL extraction plus scheduled Node.js reports saved about 30 admin hours a month, and learner data stays synced with Sync.</li>
+            <li>Built <strong>Sync</strong> to automate Google Meet scheduling, homework distribution and homework-review routing across 100+ WhatsApp groups. Webhook-driven workflows and Redis-backed queues handle 400+ messages a week.</li>
+            <li>Built <strong>CEDAR AI</strong>, a research-writing assistant that 25+ researchers have used to draft and format 80+ manuscripts. Under the hood: PDF ingestion, RAG over ChromaDB, structured JSON outputs, and Dockerized services deployed through GitHub Actions.</li>
+            <li>Program Coordinator for CaseQuest with BITSOM Mumbai &amp; IIM Mumbai: curriculum delivery and logistics for 100+ participants.</li>
+          </ul>
+          <div class="tags"><span>Node.js</span><span>Next.js</span><span>Python</span><span>PostgreSQL</span><span>Redis</span><span>ChromaDB</span><span>RAG</span><span>Docker</span><span>GitHub Actions</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-top">
+            <h3>Chief Technology Officer, Healthcare (part-time)</h3>
+            <span class="when">aug 2024 – may 2025</span>
+          </div>
+          <p class="org">100 Girls in Generative AI · Mumbai</p>
+          <ul class="bullets">
+            <li>Led development of a Hindi-English nutrition chatbot that makes public-health guidance easier for rural mothers to reach. Answers are grounded in curated health resources through RAG.</li>
+            <li>Made it work offline on 8 GB RAM lab machines by running a 4-bit GGUF-quantized Llama 3 8B with llama.cpp. GPU-assisted inference gets about 10 tokens/sec, with no cloud dependency.</li>
+          </ul>
+          <div class="tags"><span>RAG</span><span>Llama 3</span><span>llama.cpp</span><span>Quantization</span><span>Edge inference</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-top">
+            <h3>Software Development Engineer Intern (part-time)</h3>
             <span class="when">apr 2024 – feb 2025</span>
           </div>
-          <p class="org">LearnMigo · Hybrid, Mumbai / Bangalore</p>
+          <p class="org">LearnMigo · Hybrid, Mumbai</p>
           <ul class="bullets">
-            <li>Developed customizable avatar chatbots that let teachers personalize student interactions, with personas that stayed consistent across varied content and teaching styles.</li>
-            <li>Built <strong>LessonAI</strong>, a generative-AI tool for drafting learning outcomes, instructional content and presentations.</li>
+            <li>Built configurable avatar chatbots for a subject-aware AI teaching assistant, piloted by 5 educators reaching 200+ students. RAG and subject-specific prompts kept answers aligned with learning objectives.</li>
+            <li>Built <strong>LessonAI</strong> to automate drafting lesson content and presentations, using reusable prompt templates and OpenAI Structured Outputs (JSON Schema), validated with pytest.</li>
           </ul>
-          <div class="tags"><span>Generative AI</span><span>Chatbots</span></div>
+          <div class="tags"><span>Generative AI</span><span>RAG</span><span>OpenAI</span><span>pytest</span></div>
         </article>
       </div>
     </div>
@@ -370,7 +400,7 @@
           <article class="card">
             <div class="card-top"><h3>Countersign</h3><span class="yr">2026</span></div>
             <span class="award">IBM Track + Best Use of Jaclang · JacHacks 2026</span>
-            <p>An MCP server that lets an AI agent spend money, but only after proving it should. The agent's priced goal graph and every purchase are vetted by deterministic rules plus an LLM judge before Stripe moves a dollar.</p>
+            <p>An MCP server that lets an AI agent spend money, but only after proving it should. The agent's priced goal graph and every test-mode Stripe purchase are vetted by deterministic budget, price and URL-safety checks, plus an LLM judge of merchant legitimacy and intent. Tested on 40+ benign and adversarial scenarios, including prompt injection, it approved 95% of 20+ legitimate purchases.</p>
             <div class="tags"><span>Jac</span><span>MCP</span><span>Stripe API</span><span>LLM-as-judge</span></div>
             <div class="card-links">
               <a href="https://devpost.com/software/countersign-mcp" target="_blank" rel="noopener">devpost ↗</a>
@@ -380,7 +410,7 @@
 
           <article class="card">
             <div class="card-top"><h3>Reasoning Canvas</h3><span class="yr">2026</span></div>
-            <p>A structured argument canvas for high school researchers. Claims branch into sub-claims and attract supporting or opposing evidence (RAG over pgvector), and checkpoints capture how the argument evolves, all before anyone writes a word.</p>
+            <p>A structured argument canvas for high school researchers. Claims branch into sub-claims and attract supporting or opposing evidence (RAG over pgvector), and checkpoints capture how the argument evolves, all before anyone writes a word. Evidence comes from 100+ scientific papers, with recursive chunking and text-embedding-3-small. When retrieval comes up short, it falls back to Gemini search grounding.</p>
             <div class="tags"><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Supabase pgvector</span><span>Gemini</span></div>
             <div class="card-links">
               <a href="https://reasoning-canvas-created-web.vercel.app/" target="_blank" rel="noopener">live demo ↗</a>
@@ -390,8 +420,8 @@
 
           <article class="card">
             <div class="card-top"><h3>CEDAR AI</h3><span class="yr">2025–26</span></div>
-            <p>A research assistant platform where students and mentors build papers section by section, with AI-assisted drafting, citation generation and formatting compliance checks. Used by 25+ researchers.</p>
-            <div class="tags"><span>Next.js</span><span>Node.js</span><span>Python</span><span>Supabase</span><span>OpenAI</span></div>
+            <p>A research assistant platform where students and mentors build papers section by section, with AI-assisted drafting, citation generation and formatting compliance checks. It ingests PDFs and runs RAG over ChromaDB with structured JSON outputs. 25+ researchers have used it to draft and format 80+ manuscripts.</p>
+            <div class="tags"><span>Next.js</span><span>Node.js</span><span>Python</span><span>Supabase</span><span>OpenAI</span><span>ChromaDB</span><span>Docker</span><span>GitHub Actions</span></div>
             <div class="card-links">
               <a href="https://cedar-ai-created.vercel.app" target="_blank" rel="noopener">live demo ↗</a>
               <a href="https://github.com/arihaniyer9/CEDAR-AI" target="_blank" rel="noopener">overview ↗</a>
@@ -400,8 +430,8 @@
 
           <article class="card">
             <div class="card-top"><h3>Sync</h3><span class="yr">2025–26</span></div>
-            <p>An agentic WhatsApp bot that schedules mentor–student meetings from natural language: recurring meetings, time zones, role-based permissions and reminders, plus an admin dashboard. Runs across 100+ groups.</p>
-            <div class="tags"><span>Baileys</span><span>FastAPI</span><span>Supabase</span><span>Google Calendar API</span></div>
+            <p>A WhatsApp bot that handles the busywork for mentor–student groups: Google Meet scheduling, homework distribution and homework-review routing. Webhook-driven workflows and Redis-backed queues handle 400+ messages a week across 100+ groups.</p>
+            <div class="tags"><span>WhatsApp</span><span>Webhooks</span><span>Redis</span><span>Google Meet</span></div>
             <div class="card-links">
               <a href="https://github.com/arihaniyer9/SYNC" target="_blank" rel="noopener">overview ↗</a>
             </div>
@@ -418,19 +448,22 @@
           </article>
 
           <article class="card">
-            <div class="card-top"><h3>E-bike Recommendation Chatbot</h3><span class="yr">2025</span></div>
-            <p>A recommendation chatbot for Joy E-Bike (India's first listed EV company) using weighted scoring and collaborative filtering, with an admin panel that turns raw chats into KPIs like preference trends and lead conversion.</p>
-            <div class="tags"><span>React</span><span>Node.js</span><span>Python</span><span>spaCy</span><span>D3.js</span></div>
-            <div class="card-links"><span class="nolink">no public repo</span></div>
+            <div class="card-top"><h3>Crop Suitability Pipeline</h3><span class="yr">2025</span></div>
+            <p>A two-stage crop recommender to replace generic planting advice. It suggests crops from soil-nutrient data, then checks each one against yield thresholds. Random Forest feature selection and LightGBM on 8,000+ geospatial records reach 0.94 macro F1 on a stratified 20% held-out test set. SHAP shows which inputs drive each pick, so farmers can check it for their own land.</p>
+            <div class="tags"><span>Python</span><span>scikit-learn</span><span>LightGBM</span><span>SHAP</span></div>
+            <div class="card-links">
+              <a href="https://huggingface.co/spaces/chipsyum/crop_suitability" target="_blank" rel="noopener">live demo ↗</a>
+              <a href="https://github.com/arihaniyer9/Crop-Suitability-using-XAI" target="_blank" rel="noopener">overview ↗</a>
+            </div>
           </article>
         </div>
 
         <p class="archive-h">// more from the archive</p>
         <ul class="archive">
-          <li><a href="https://github.com/arihaniyer9/Crop-Suitability-using-XAI" target="_blank" rel="noopener">
-            <span class="a-title">Crop Suitability Prediction using XAI ↗</span>
-            <span class="a-stack">Random Forest · LightGBM</span>
-            <span class="a-desc">Two-stage model that recommends crops from soil nutrients, then checks them against yield thresholds, with explainability so farmers can see why.</span>
+          <li><a>
+            <span class="a-title" style="text-decoration:none">E-bike Recommendation Chatbot</span>
+            <span class="a-stack">React · Node.js · spaCy · D3.js</span>
+            <span class="a-desc">A recommendation chatbot for Joy E-Bike (India's first listed EV company) using weighted scoring and collaborative filtering, with an admin panel that turns raw chats into KPIs like preference trends and lead conversion. No public repo.</span>
           </a></li>
           <li><a href="https://github.com/arihaniyer9/Multi-Modal_Image_Retrieval_System" target="_blank" rel="noopener">
             <span class="a-title">Multi-Modal Image Retrieval ↗</span>
@@ -441,11 +474,6 @@
             <span class="a-title">CaseQuest App ↗</span>
             <span class="a-stack">MERN · AWS EC2</span>
             <span class="a-desc">Challenge platform for 100+ students, built with IIM Mumbai: polls, quizzes, a live post-it wall, team randomizer and leaderboard.</span>
-          </a></li>
-          <li><a href="https://github.com/arihaniyer9/Healthcare-Chatbot-using-Claude" target="_blank" rel="noopener">
-            <span class="a-title">Healthcare Chatbot ↗</span>
-            <span class="a-stack">React · Node.js · Claude API</span>
-            <span class="a-desc">Helps parents of malnourished children get a preliminary assessment and diet plan from a few simple questions, or points them to nearby doctors.</span>
           </a></li>
           <li><a href="https://github.com/arihaniyer9/Sign-Language-Learning-Companion-using-CNN" target="_blank" rel="noopener">
             <span class="a-title">Sign Language Learning Companion ↗</span>
@@ -471,7 +499,7 @@
           <!-- TODO: add MHacks link after the event -->
           <span class="t">Judge, MHacks</span>
           <span class="y">2026</span>
-          <span class="d">Selected to evaluate student hackathon projects at the University of Michigan.</span>
+          <span class="d">Judged student hackathon projects at the University of Michigan.</span>
         </li>
         <li>
           <span class="t"><a href="https://www.gse.upenn.edu/news/penn-gse-and-milken-family-foundation-announce-finalists-prestigious-global-education-venture" target="_blank" rel="noopener">Finalist, Milken–Penn GSE Education Business Plan Competition ↗</a></span>
@@ -479,8 +507,13 @@
           <span class="d">CreatED was one of seven finalists in the 17th annual competition.</span>
         </li>
         <li>
-          <span class="t">'Star Student' Award, IT Department, Mumbai University</span>
+          <span class="t">'Star Student' Award, IT Department, University of Mumbai</span>
           <span class="d">Department's top-performing student across academics, technical work and leadership.</span>
+        </li>
+        <li>
+          <span class="t">President, Information Technology Students Association</span>
+          <span class="y">2023 – 2024</span>
+          <span class="d">Led a 100-person organizing team.</span>
         </li>
         <li>
           <span class="t">Finalist, Smart India Hackathon</span>
@@ -498,12 +531,12 @@
       <ul class="rows">
         <li>
           <span class="t">University of Michigan, Ann Arbor</span>
-          <span class="y">2026 – 2028</span>
+          <span class="y">aug 2026 – may 2028</span>
           <span class="d">MS, Computer Science &amp; Engineering · Advanced Scalable Systems, NLP, Human-AI Interaction</span>
         </li>
         <li>
-          <span class="t">Mumbai University</span>
-          <span class="y">2021 – 2025</span>
+          <span class="t">University of Mumbai</span>
+          <span class="y">aug 2021 – may 2025</span>
           <span class="d">B.E., Information Technology (Honours in AI &amp; ML) · GPA 3.90/4</span>
         </li>
       </ul>
